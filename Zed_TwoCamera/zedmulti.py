@@ -37,7 +37,7 @@ def grab_and_process(index, zed, model):
             # Debugging: Verify frame capture
             print(f"Camera {index}: Frame captured")
 
-            # 🔹 Convert RGBA → RGB (compatible with YOLOv8)
+            # Convert RGBA → RGB (compatible with YOLOv8)
             frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
             # Perform YOLOv8 object detection
@@ -67,7 +67,7 @@ def grab_and_process(index, zed, model):
                 cv2.putText(frame, "No person detected", (50, 50),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
 
-            # 🔹 Debugging: Display a blank screen if no valid frame exists
+            # Debugging: Display a blank screen if no valid frame exists
             if frame is None or frame.shape[0] == 0:
                 frame = np.zeros((720, 1280, 3), dtype=np.uint8)
                 print(f"Camera {index}: No valid frame, showing blank screen")
